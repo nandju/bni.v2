@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family:
+    var(--font-poppins), "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* BNI Theme - Green Dominant with White and Orange */
+    /* Light Theme */
+    --background-light: 142 50% 8%; /* Dark Green Background */
+    --foreground-light: 0 0% 100%; /* White text */
+    --card-light: 142 40% 12%; /* Darker Green cards */
+    --card-foreground-light: 0 0% 100%;
+    --popover-light: 142 40% 12%;
+    --popover-foreground-light: 0 0% 100%;
+    --primary-light: 142 70% 45%; /* Dominant Green */
+    --primary-foreground-light: 0 0% 100%; /* White */
+    --secondary-light: 30 100% 60%; /* Orange */
+    --secondary-foreground-light: 0 0% 100%; /* White */
+    --muted-light: 142 30% 20%; /* Muted Green */
+    --muted-foreground-light: 0 0% 85%; /* Light Gray */
+    --accent-light: 142 60% 50%; /* Accent Green */
+    --accent-foreground-light: 0 0% 100%; /* White */
+    --destructive-light: 0 80% 60%; /* Red for errors */
+    --destructive-foreground-light: 0 0% 100%;
+    --border-light: 142 30% 25%; /* Green border */
+    --input-light: 142 30% 18%;
+    --ring-light: 142 70% 50%; /* Green ring */
+
+    /* Dark Theme (same as light for consistency) */
+    --background-dark: 142 50% 8%; /* Dark Green Background */
+    --foreground-dark: 0 0% 100%; /* White text */
+    --card-dark: 142 40% 12%; /* Darker Green cards */
+    --card-foreground-dark: 0 0% 100%;
+    --popover-dark: 142 40% 12%;
+    --popover-foreground-dark: 0 0% 100%;
+    --primary-dark: 142 70% 45%; /* Dominant Green */
+    --primary-foreground-dark: 0 0% 100%; /* White */
+    --secondary-dark: 30 100% 60%; /* Orange */
+    --secondary-foreground-dark: 0 0% 100%; /* White */
+    --muted-dark: 142 30% 20%; /* Muted Green */
+    --muted-foreground-dark: 0 0% 85%; /* Light Gray */
+    --accent-dark: 142 60% 50%; /* Accent Green */
+    --accent-foreground-dark: 0 0% 100%; /* White */
+    --destructive-dark: 0 80% 60%; /* Red for errors */
+    --destructive-foreground-dark: 0 0% 100%;
+    --border-dark: 142 30% 25%; /* Green border */
+    --input-dark: 142 30% 18%;
+    --ring-dark: 142 70% 50%; /* Green ring */
+
+    --radius: 0.75rem;
+
+    /* Tablet-specific styles for ATM interface */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      body {
+        font-size: 18px;
+      }
+      
+      /* Larger touch targets for tablet */
+      button {
+        min-height: 48px;
+        min-width: 48px;
+      }
+      
+      /* Better spacing for tablet */
+      .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+    
+    /* Prevent text selection on ATM interface */
+    .atm-interface {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Default to Light Theme variables */
+    --background: var(--background-light);
+    --foreground: var(--foreground-light);
+    --card: var(--card-light);
+    --card-foreground: var(--card-foreground-light);
+    --popover: var(--popover-light);
+    --popover-foreground: var(--popover-foreground-light);
+    --primary: var(--primary-light);
+    --primary-foreground: var(--primary-foreground-light);
+    --secondary: var(--secondary-light);
+    --secondary-foreground: var(--secondary-foreground-light);
+    --muted: var(--muted-light);
+    --muted-foreground: var(--muted-foreground-light);
+    --accent: var(--accent-light);
+    --accent-foreground: var(--accent-foreground-light);
+    --destructive: var(--destructive-light);
+    --destructive-foreground: var(--destructive-foreground-light);
+    --border: var(--border-light);
+    --input: var(--input-light);
+    --ring: var(--ring-light);
+  }
+
+  .dark {
+    --background: var(--background-dark);
+    --foreground: var(--foreground-dark);
+    --card: var(--card-dark);
+    --card-foreground: var(--card-foreground-dark);
+    --popover: var(--popover-dark);
+    --popover-foreground: var(--popover-foreground-dark);
+    --primary: var(--primary-dark);
+    --primary-foreground: var(--primary-foreground-dark);
+    --secondary: var(--secondary-dark);
+    --secondary-foreground: var(--secondary-foreground-dark);
+    --muted: var(--muted-dark);
+    --muted-foreground: var(--muted-foreground-dark);
+    --accent: var(--accent-dark);
+    --accent-foreground: var(--accent-foreground-dark);
+    --destructive: var(--destructive-dark);
+    --destructive-foreground: var(--destructive-foreground-dark);
+    --border: var(--border-dark);
+    --input: var(--input-dark);
+    --ring: var(--ring-dark);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  body.app-loading {
+    overflow: hidden;
+  }
+}
+
+/* Prose styles for markdown content */
+@layer base {
+  .prose {
+    @apply text-foreground;
+  }
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose strong {
+    @apply text-foreground;
+  }
+  .prose a {
+    @apply text-primary hover:text-primary/80;
+  }
+  .prose code {
+    @apply text-secondary-foreground bg-secondary/20 px-1 py-0.5 rounded-sm font-mono text-sm;
+  }
+  .prose blockquote {
+    @apply border-l-4 border-primary/50 pl-4 italic text-muted-foreground;
+  }
+
+  /* Dark mode prose styles are inherited correctly due to CSS var overrides in .dark */
+}
