@@ -105,9 +105,7 @@ export default function Header({ cycleLavaMode, currentLavaMode, nextLavaMode }:
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent className="bg-popover border text-popover-foreground">
-                  <p>
-                    Cycle Mode (Current: {currentLavaMode}, Next: {nextLavaMode})
-                  </p>
+                  <p className="capitalize">Mode: {currentLavaMode}</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

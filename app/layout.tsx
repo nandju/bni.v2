@@ -15,7 +15,11 @@ export const metadata: Metadata = {
   title: "BNI - Banque Nationale d'Investissement",
   description:
     "Guichet automatique BNI - Accédez à vos services bancaires en toute sécurité",
-  generator: 'v0.dev'
+  generator: 'v0.dev',
+  icons: {
+    icon: '/logo_bni.jpg',
+    apple: '/logo_bni.jpg',
+  },
 }
 
 export const viewport = {
